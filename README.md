@@ -14,6 +14,7 @@
   - React Router v7.3 [https://reactrouter.com/home]
 - Setup redux store.ts file and setup Provider for app
 - Created wireframe in Figma
+  ![screenshot](/src/assets/employFigma.png)
 - Styled Landing page, created Button and Footer components
 - Added Current Employees page
 - Created logo component
