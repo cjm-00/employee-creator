@@ -1,0 +1,35 @@
+@use "../../styles/colors" as c;
+
+.card {
+  width: 470px;
+  height: 180px;
+  background-color: c.$umbra;
+
+  .nameLine {
+    display: flex;
+    align-items: center;
+    .user {
+      width: 40px;
+      margin: 0px 20px;
+      margin-top: 20px;
+    }
+    .name {
+      font-weight: 600;
+    }
+  }
+
+  .infoLine {
+    margin-left: 80px;
+    .info {
+      font-weight: 300;
+      color: c.$snow-d;
+      font-size: 1.1em;
+    }
+  }
+
+  .btnLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 120px;
+  }
+}

@@ -1,0 +1,14 @@
+@use "../../styles/colors" as c;
+
+.heading {
+  font-weight: 600;
+  font-size: 2.8em;
+  color: c.$snow;
+  //   text-shadow: 3px 3px 5px rgba(19, 19, 19, 0.473);
+}
+
+.logo {
+  display: flex;
+  padding: 30px;
+  text-decoration: none;
+}

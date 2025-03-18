@@ -1,0 +1,15 @@
+@use "./colors" as c;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: c.$charcoal;
+  color: c.$snow;
+  font-family: "Libre Franklin", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}

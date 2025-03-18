@@ -1,0 +1,13 @@
+@use "../../styles/colors" as c;
+
+.footer {
+  background-color: c.$umbra;
+  padding: 5px;
+  color: rgba(128, 128, 128, 0.63);
+  position: absolute;
+  width: 100vw;
+  bottom: 0%;
+  font-size: 0.7em;
+  display: flex;
+  gap: 5px;
+}

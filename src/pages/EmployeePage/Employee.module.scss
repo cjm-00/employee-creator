@@ -1,0 +1,46 @@
+@use "../../styles/colors" as c;
+
+.employeePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.detailsPane {
+  background-color: c.$umbra;
+  width: 80%;
+  padding: 50px;
+  max-height: 900px;
+  overflow-y: scroll;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 15px 5px rgba(0, 0, 0, 0.144);
+  .infoSection {
+    padding-bottom: 90px;
+
+    .sectionHeading {
+      padding-bottom: 30px;
+      color: c.$solarium;
+      font-weight: 400;
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      padding-top: 25px;
+      font-size: 1.1em;
+      font-weight: 300;
+    }
+  }
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 500px;
+  padding-top: 90px;
+  .changeBtnContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+}

@@ -1,0 +1,29 @@
+.heading {
+  font-weight: 600;
+  font-size: 6em;
+  text-shadow: 3px 3px 5px rgba(19, 19, 19, 0.473);
+}
+
+.headingContainer {
+  display: flex;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 90px;
+  display: flex;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
