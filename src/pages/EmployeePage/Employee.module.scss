@@ -1,18 +1,33 @@
 @use "../../styles/colors" as c;
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.headerContainer {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
 .employeePage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  min-height: 100vh;
 }
 
 .detailsPane {
+  margin-top: 30px;
+
+  flex: 1;
   background-color: c.$umbra;
   width: 80%;
   padding: 50px;
-  max-height: 900px;
-  overflow-y: scroll;
+  min-height: 0;
+  max-height: 70vh;
+  overflow-y: auto;
   border-radius: 10px;
   box-shadow: inset 1px 1px 15px 5px rgba(0, 0, 0, 0.144);
   .infoSection {
@@ -35,9 +50,11 @@
 
 .btnContainer {
   display: flex;
-  flex-direction: row;
-  gap: 500px;
-  padding-top: 90px;
+  justify-content: space-between;
+  width: 80%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+
   .changeBtnContainer {
     display: flex;
     flex-direction: row;

@@ -1,25 +1,29 @@
 @use "../../styles/colors" as c;
 
 .card {
-  width: 470px;
+  width: 420px;
   height: 180px;
   background-color: c.$umbra;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.158);
 
   .nameLine {
     display: flex;
     align-items: center;
     .user {
-      width: 40px;
+      width: 35px;
       margin: 0px 20px;
-      margin-top: 20px;
+      margin-top: 40px;
+      margin-left: 40px;
     }
     .name {
+      margin-top: 30px;
       font-weight: 600;
     }
   }
 
   .infoLine {
-    margin-left: 80px;
+    margin-left: 95px;
     .info {
       font-weight: 300;
       color: c.$snow-d;
@@ -30,6 +34,6 @@
   .btnLine {
     display: flex;
     justify-content: space-between;
-    padding: 40px 120px;
+    padding: 30px 120px;
   }
 }

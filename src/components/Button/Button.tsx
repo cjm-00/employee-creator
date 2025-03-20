@@ -3,16 +3,16 @@ import classes from "./Button.module.scss";
 
 interface btnProps {
   children: any;
-  variant: string;
+  variant: "primary" | "secondary" | "subtle--p" | "subtle--s";
   asLink?: boolean;
   linkTo?: string;
 }
 
 export default function Button({
   children,
-  variant,
-  asLink,
-  linkTo,
+  variant = "primary",
+  asLink = false,
+  linkTo = "",
 }: btnProps) {
   return (
     <>
