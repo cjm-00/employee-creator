@@ -13,24 +13,36 @@
 .updatedEmployeeForm {
   width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 10px;
 }
 
 .sectionHeading {
   padding-bottom: 10px;
   color: c.$solarium;
-  font-weight: 400;
+  font-size: 1.8em;
+  font-weight: 500;
   padding-top: 50px;
   padding-left: 10px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .btnContainer {
   display: flex;
   justify-content: space-between;
-  width: 40%;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  align-self: center;
-  gap: 50px;
+  width: 90%;
+  position: fixed;
+  bottom: 80px;
+}
+
+.contractTypeDiv {
+  display: flex;
+  flex-direction: row;
 }
