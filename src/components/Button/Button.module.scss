@@ -33,6 +33,28 @@
   }
 }
 
+.small--p {
+  background-color: c.$snow;
+  font-size: 1em;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  &:hover {
+    background-color: c.$snow-d;
+  }
+}
+
+.small--s {
+  background-color: c.$solarium;
+  font-size: 1em;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  &:hover {
+    background-color: c.$solarium-d;
+  }
+}
+
 .subtle--p {
   border: none;
   background: none;
@@ -57,6 +79,22 @@
   color: c.$solarium;
   &:hover {
     color: c.$solarium-d;
+    transform: scale(1.07);
+  }
+}
+
+.subtle--large {
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-size: 1.3em;
+  font-weight: 300;
+  padding: 15px;
+  width: fit-content;
+  height: fit-content;
+  color: c.$snow;
+  &:hover {
+    color: c.$snow-d;
     transform: scale(1.07);
   }
 }

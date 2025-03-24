@@ -3,8 +3,15 @@ import classes from "./Button.module.scss";
 import { MouseEventHandler } from "react";
 
 interface btnProps {
-  children: any;
-  variant: "primary" | "secondary" | "subtle--p" | "subtle--s";
+  children?: any;
+  variant?:
+    | "primary"
+    | "secondary"
+    | "subtle--p"
+    | "subtle--s"
+    | "small--p"
+    | "small--s"
+    | "subtle--large";
   asLink?: boolean;
   linkTo?: string;
   type?: "button" | "submit" | "reset" | undefined;
