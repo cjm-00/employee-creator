@@ -37,3 +37,15 @@ body {
   justify-content: center;
   flex: 1;
 }
+
+.newBtnDiv {
+  position: fixed;
+  z-index: 3;
+  bottom: 5%;
+  right: 5%;
+}
+
+.backBtnDiv {
+  margin-left: 5%;
+  margin-bottom: 20px;
+}

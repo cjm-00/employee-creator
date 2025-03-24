@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/employees/:id" element={<Employee />} />
-          <Route path="/Create" element={<CreatePage />} />
+          <Route path="/create" element={<CreatePage />} />
           <Route path="/employees/:id/edit" element={<EditPage />} />
         </Routes>
       </BrowserRouter>

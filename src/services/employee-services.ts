@@ -1,5 +1,3 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-
 export interface EmployeeBp {
   id: number;
   firstname: string;
@@ -73,5 +71,6 @@ export const updateEmployee = async (id: number, data) => {
       "Problem with updating entry :( request denied by database"
     );
   }
-  return await response.json();
+  const text = await response.text();
+  return text ? JSON.parse(text) : null;
 };

@@ -4,6 +4,8 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import classes from "./Employees.module.scss";
 import { EmployeeBp, getEmployees } from "../../services/employee-services";
+import { useState } from "react";
+import Button from "../../components/Button/Button";
 
 export default function Employees() {
   const employeesQueryInfo = useQuery({
@@ -19,13 +21,19 @@ export default function Employees() {
         {employeesQueryInfo.data?.map((employee: EmployeeBp) => (
           <EmployeeCard data={employee} key={employee.id} />
         ))}
-        {/* <EmployeeCard />
-        <EmployeeCard />
-        <EmployeeCard />
-        <EmployeeCard />
-        <EmployeeCard /> */}
       </div>
 
+      <div className={classes.newBtnDiv}>
+        <Button variant="secondary" asLink linkTo={`/create`}>
+          + Create New
+        </Button>
+      </div>
+
+      <div className={classes.backBtnDiv}>
+        <Button asLink linkTo="/" variant="subtle--large">
+          🠈 Back
+        </Button>
+      </div>
       <Footer />
     </div>
   );
