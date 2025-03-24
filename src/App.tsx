@@ -4,6 +4,7 @@ import Landing from "./pages/Landing/Landing";
 import Employees from "./pages/Employees/Employees";
 import Employee from "./pages/EmployeePage/Employee";
 import CreatePage from "./pages/CreatePage/CreatePage";
+import EditPage from "./pages/EditPage/EditPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/employees" element={<Employees />} />
           <Route path="/employees/:id" element={<Employee />} />
           <Route path="/Create" element={<CreatePage />} />
+          <Route path="/employees/:id/edit" element={<EditPage />} />
         </Routes>
       </BrowserRouter>
     </>
