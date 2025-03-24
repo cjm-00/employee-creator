@@ -1,9 +1,13 @@
 import classes from "./EmployeeCard.module.scss";
 import user from "../../assets/user.svg";
 import Button from "../Button/Button";
-import { EmployeeBp } from "../../services/employee-services";
+import { deleteEmployee, EmployeeBp } from "../../services/employee-services";
 
 export default function EmployeeCard({ data }: { data: EmployeeBp }) {
+  const handleDeleteClick = () => {
+    deleteEmployee(data.id);
+  };
+
   return (
     <div className={classes.card}>
       <div className={classes.nameLine}>
@@ -24,7 +28,9 @@ export default function EmployeeCard({ data }: { data: EmployeeBp }) {
         >
           View
         </Button>
-        <Button variant={"subtle--s"}>Delete</Button>
+        <Button variant={"subtle--s"} onClick={handleDeleteClick}>
+          Delete
+        </Button>
       </div>
     </div>
   );
