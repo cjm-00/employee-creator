@@ -1,0 +1,23 @@
+@use "../../styles/colors" as c;
+
+.modal {
+  position: fixed;
+  z-index: 5;
+  background-color: c.$umbra;
+  padding: 30px;
+  top: 30%;
+  left: 50%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(39, 39, 39, 0.486);
+  transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.815);
+  z-index: 4;
+}
