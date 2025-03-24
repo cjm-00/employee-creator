@@ -2,7 +2,11 @@ import { useParams } from "react-router";
 import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import { EmployeeBp, getEmployeeById } from "../../services/employee-services";
+import {
+  deleteEmployee,
+  EmployeeBp,
+  getEmployeeById,
+} from "../../services/employee-services";
 import classes from "./Employee.module.scss";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -22,6 +26,11 @@ export default function Employee() {
   }
 
   const em = employeeQueryInfo.data;
+
+  const handleDeleteClick = () => {
+    deleteEmployee(Number(id));
+  };
+
   return (
     <>
       <div className={classes.employeePage}>
@@ -96,12 +105,20 @@ export default function Employee() {
         </div>
 
         <div className={classes.btnContainer}>
-          <Button variant="primary" asLink linkTo={"/Employees"}>
+          <Button variant="primary" asLink linkTo={"/employees"}>
             🠈 Back
           </Button>
           <div className={classes.changeBtnContainer}>
-            <Button variant="primary">Edit</Button>
-            <Button variant="secondary">DELETE</Button>
+            <Button
+              variant="primary"
+              asLink
+              linkTo={`/employees/${em.id}/edit`}
+            >
+              Edit
+            </Button>
+            <Button variant="secondary" onClick={handleDeleteClick}>
+              DELETE
+            </Button>
           </div>
         </div>
         <Footer />
