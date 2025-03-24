@@ -65,4 +65,14 @@ Front-End
 - Employee creation endpoint added (updated service and controller, added CreateEmployeeDTO)
 - Creating new collection/runner in postman to batch create employees
 
+##### 21-03-25
+
+- Created delete employee endpoint in API backend
+- Implemented react hook form in Input component
+- Setup Create Employee Form to post to API
+- Created deletion service in frontend and linked to delete buttons on Employee card and details page
+- New 'edit' page created with routing
+- New updateEmployee endpoint created in backend w/ model mapping
+- Added update service to frontend and implemented function in edit page
+
 ### Future Plans ✈️
