@@ -165,6 +165,16 @@ export default function EditPage() {
                 register={register}
                 error={errors.contractType?.message}
               />
+              <Input
+                variant="radio"
+                type="radio"
+                required
+                label="Contract"
+                name={"contractType"}
+                value="CT"
+                register={register}
+                error={errors.contractType?.message}
+              />
             </div>
 
             <Input
