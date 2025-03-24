@@ -15,7 +15,7 @@ export default function DeleteModal({
   fn: string;
   sn: string;
   isModalOpen: boolean;
-  setIsModalOpen: (arg: boolean) => {};
+  setIsModalOpen: (arg: boolean) => void;
   employeeId: number;
 }) {
   const closeModal = () => {

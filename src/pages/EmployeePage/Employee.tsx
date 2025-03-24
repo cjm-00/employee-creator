@@ -2,19 +2,15 @@ import { useNavigate, useParams } from "react-router";
 import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import {
-  deleteEmployee,
-  EmployeeBp,
-  getEmployeeById,
-} from "../../services/employee-services";
+import { getEmployeeById } from "../../services/employee-services";
 import classes from "./Employee.module.scss";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import { useState } from "react";
 
 export default function Employee() {
   const { id } = useParams();
-  let navigate = useNavigate();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const employeeQueryInfo = useQuery({
