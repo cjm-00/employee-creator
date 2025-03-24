@@ -1,11 +1,14 @@
 import { Link } from "react-router";
 import classes from "./Button.module.scss";
+import { MouseEventHandler } from "react";
 
 interface btnProps {
   children: any;
   variant: "primary" | "secondary" | "subtle--p" | "subtle--s";
   asLink?: boolean;
   linkTo?: string;
+  type?: "button" | "submit" | "reset" | undefined;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 export default function Button({
@@ -13,6 +16,8 @@ export default function Button({
   variant = "primary",
   asLink = false,
   linkTo = "",
+  type = "button",
+  onClick,
 }: btnProps) {
   return (
     <>
@@ -21,7 +26,11 @@ export default function Button({
           {children}
         </Link>
       ) : (
-        <button className={`${classes.button} ${classes[variant]}`}>
+        <button
+          type={type}
+          className={`${classes.button} ${classes[variant]}`}
+          onClick={onClick}
+        >
           {children}
         </button>
       )}
