@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
@@ -9,9 +9,13 @@ import {
 } from "../../services/employee-services";
 import classes from "./Employee.module.scss";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import DeleteModal from "../../components/DeleteModal/DeleteModal";
+import { useState } from "react";
 
 export default function Employee() {
   const { id } = useParams();
+  let navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const employeeQueryInfo = useQuery({
     queryKey: ["employee", id],
@@ -28,11 +32,20 @@ export default function Employee() {
   const em = employeeQueryInfo.data;
 
   const handleDeleteClick = () => {
-    deleteEmployee(Number(id));
+    setIsModalOpen(true);
+    // navigate(`/employees`);
   };
 
   return (
     <>
+      <DeleteModal
+        fn={em.firstname}
+        sn={em.surname}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        employeeId={em.id}
+      />
+
       <div className={classes.employeePage}>
         <div className={classes.headerContainer}>
           <Header yHeading={"Employee"} wHeading={"Details"} />
@@ -105,7 +118,7 @@ export default function Employee() {
         </div>
 
         <div className={classes.btnContainer}>
-          <Button variant="primary" asLink linkTo={"/employees"}>
+          <Button variant="subtle--large" asLink linkTo={"/employees"}>
             🠈 Back
           </Button>
           <div className={classes.changeBtnContainer}>
