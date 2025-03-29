@@ -13,27 +13,41 @@ export interface EmployeeBp {
   jobTitle: string;
 }
 
-export const getEmployees = async () => {
-  const response = await fetch("http://localhost:8080/employees");
-  const employeesData = await response.json();
-  if (!response.ok) {
-    throw new Error("Problem pulling data into app from database :(");
-  }
+interface PaginatedEmployees {
+  employeesData: EmployeeBp[];
+  totalPages: number;
+}
 
-  return employeesData;
+export const getEmployees = async (
+  page: number
+): Promise<PaginatedEmployees> => {
+  // throw new Error("Data request denied by API");
+
+  const response = await fetch(
+    `http://localhost:8080/employees?page=${page}&size=9`
+  );
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error("Data request denied by API");
+  }
+  const employeesData = data.content;
+  const totalPages = data.totalPages;
+  return { employeesData, totalPages };
 };
 
 export const getEmployeeById = async (id: number) => {
   const response = await fetch(`http://localhost:8080/employees/${id}`);
   const employeeData = await response.json();
   if (!response.ok) {
-    throw new Error("Problem pulling entry data into app from database :(");
+    throw new Error("Specific-Data request denied by API");
   }
 
   return employeeData;
 };
 
 export const createEmployee = async (data) => {
+  // throw new Error("Create request denied by API");
+
   const response = await fetch("http://localhost:8080/employees", {
     method: "POST",
     body: JSON.stringify(data),
@@ -42,23 +56,25 @@ export const createEmployee = async (data) => {
     },
   });
   if (!response.ok) {
-    throw new Error(
-      "Problem with creation :( request not accepted by database"
-    );
+    throw new Error("Create request denied by API");
   }
   return await response.json();
 };
 
 export const deleteEmployee = async (id: number) => {
+  // throw new Error("Delete request denied by API");
+
   const response = await fetch(`http://localhost:8080/employees/${id}`, {
     method: "DELETE",
   });
   if (!response.ok) {
-    throw new Error("Delete request denied by databse :(");
+    throw new Error("Delete request denied by API");
   }
 };
 
 export const updateEmployee = async (id: number, data) => {
+  // throw new Error("Update request denied by API");
+
   const response = await fetch(`http://localhost:8080/employees/${id}/edit`, {
     method: "PATCH",
     body: JSON.stringify(data),
@@ -67,9 +83,7 @@ export const updateEmployee = async (id: number, data) => {
     },
   });
   if (!response.ok) {
-    throw new Error(
-      "Problem with updating entry :( request denied by database"
-    );
+    throw new Error("Update request denied by API");
   }
   const text = await response.text();
   return text ? JSON.parse(text) : null;

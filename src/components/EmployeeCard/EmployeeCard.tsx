@@ -2,12 +2,24 @@ import classes from "./EmployeeCard.module.scss";
 import user from "../../assets/user.svg";
 import Button from "../Button/Button";
 import { deleteEmployee, EmployeeBp } from "../../services/employee-services";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import NotificationModal from "../NotificationModal/NotificationModal";
 
 export default function EmployeeCard({ data }: { data: EmployeeBp }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
+  const [notificationMsg, setNotification] = useState("");
+
+  useEffect(() => {
+    if (!notificationMsg) return;
+
+    setIsNotificationModalOpen(true);
+    setTimeout(function () {
+      setIsNotificationModalOpen(false);
+    }, 4000);
+  }, [notificationMsg]);
 
   const handleDeleteClick = () => {
     setIsModalOpen(true);
@@ -21,6 +33,14 @@ export default function EmployeeCard({ data }: { data: EmployeeBp }) {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         employeeId={data.id}
+        setNotification={setNotification}
+      />
+
+      <NotificationModal
+        setIsModalOpen={setIsNotificationModalOpen}
+        isModalOpen={isNotificationModalOpen}
+        variant="err"
+        message={notificationMsg}
       />
 
       <div className={classes.card}>
