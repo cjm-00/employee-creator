@@ -6,19 +6,40 @@ import { getEmployeeById } from "../../services/employee-services";
 import classes from "./Employee.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import NotificationModal from "../../components/NotificationModal/NotificationModal";
+import Loading from "../../components/Loading/Loading";
 
 export default function Employee() {
   const { id } = useParams();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
+  const [notificationMsg, setNotification] = useState("");
+
+  useEffect(() => {
+    if (!notificationMsg) return;
+    setIsNotificationModalOpen(true);
+    setTimeout(function () {
+      setIsNotificationModalOpen(false);
+    }, 4000);
+  }, [notificationMsg]);
 
   const employeeQueryInfo = useQuery({
     queryKey: ["employee", id],
     queryFn: () => getEmployeeById(Number(id)),
   });
   if (employeeQueryInfo.isPending) {
-    return <span>Loading...</span>;
+    return (
+      <>
+        <div className={classes.employeePage}>
+          <div className={classes.headerContainer}>
+            <Header yHeading={"Employee"} wHeading={"Details"} />
+          </div>
+          <Loading />
+          <Footer />
+        </div>
+      </>
+    );
   }
 
   if (employeeQueryInfo.isError) {
@@ -29,17 +50,23 @@ export default function Employee() {
 
   const handleDeleteClick = () => {
     setIsModalOpen(true);
-    // navigate(`/employees`);
   };
 
   return (
     <>
       <DeleteModal
+        setNotification={setNotification}
         fn={em.firstname}
         sn={em.surname}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         employeeId={em.id}
+      />
+      <NotificationModal
+        setIsModalOpen={setIsNotificationModalOpen}
+        isModalOpen={isNotificationModalOpen}
+        variant="err"
+        message={notificationMsg}
       />
 
       <div className={classes.employeePage}>
