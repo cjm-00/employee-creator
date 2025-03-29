@@ -5,6 +5,7 @@ import Employees from "./pages/Employees/Employees";
 import Employee from "./pages/EmployeePage/Employee";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import EditPage from "./pages/EditPage/EditPage";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/employees/:id" element={<Employee />} />
           <Route path="/create" element={<CreatePage />} />
           <Route path="/employees/:id/edit" element={<EditPage />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

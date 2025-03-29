@@ -1,0 +1,36 @@
+@use "../../styles/colors" as c;
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.notFoundPage {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  .notFound {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.8em;
+    padding-top: 100px;
+
+    .yHeading {
+      color: c.$solarium;
+      font-size: 2.3em;
+    }
+
+    .wHeading {
+    }
+  }
+
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 20px;
+  }
+}
