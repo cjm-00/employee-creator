@@ -1,0 +1,44 @@
+@use "../../styles/colors" as c;
+
+.loadingDiv {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  .dots {
+    font-family: serif;
+    font-size: 10em;
+    animation: rise 1.5s ease-in-out infinite, glow 1s infinite;
+  }
+
+  @keyframes rise {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      color: c.$snow;
+    }
+    50% {
+      color: c.$solarium;
+    }
+  }
+}
+
+.dots.one {
+  animation-delay: 0s;
+}
+
+.dots.two {
+  animation-delay: 0.3s;
+}
+
+.dots.three {
+  animation-delay: 0.6s;
+}
