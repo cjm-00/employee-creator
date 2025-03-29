@@ -22,10 +22,10 @@ Front-End
 
 - Tanstack React-Query v5.68 [https://tanstack.com/query/latest]
 - React Hook Form v7.54.2 [https://react-hook-form.com/]
-- React Redux v9.2 [https://react-redux.js.org/]
 - SASS embedded v1.86 [https://www.npmjs.com/package/sass-embedded]
-- zod v.3.24.2 [https://github.com/colinhacks/zod]
 - React Router v7.3 [https://reactrouter.com/home]
+  <!-- - zod v.3.24.2 [https://github.com/colinhacks/zod] -->
+  <!-- - React Redux v9.2 [https://react-redux.js.org/] -->
 
 ### Kanban ✅
 
@@ -94,12 +94,27 @@ Project was planned out with a Kanban board hosted on [Trello](https://trello.co
 - Updated Employee forms input types to better reflect data
 - Implemented data validation rules for Employee forms
 
+#### 28-03-25
+
+- Created NotificationModal and Modal variations
+- Added notifications for errors on Create, Read, Update and Delete of employees
+- Created Loading component and added load state management of data
+
+#### 29-03-25
+
+- Moved Create Form and Edit Form logic and components into separate EmployeeForm component
+- Added EmployeeForm variants and ternary logic for 'create' or 'edit'
+- Updated Create and Edit pages
+- Created Not Found page and setup routing
+- Updated service and controller for getAll employees to send pages instead of a list
+- Updated front-end services to receive both employeeData and totalPage info
+- Updated query on Employees page for new structure of incoming data
+- Created Pagination component and styling, coded logic for totalpages, page change buttons, page change limits
+- Implemented pagination component on Employees page
+
 ### Future Plans ✈️
 
-- Error Message notification
 - Maven test suite integration
-- 'Not Found' page with redirects to home and list
-- Pagination on Employee list page
 - Form Dynamism, show/hide fields based on above input responses
 - Filter/Sort employees in list
 - Picture upload
