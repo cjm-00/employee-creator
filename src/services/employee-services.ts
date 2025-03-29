@@ -45,7 +45,7 @@ export const getEmployeeById = async (id: number) => {
   return employeeData;
 };
 
-export const createEmployee = async (data) => {
+export const createEmployee = async (data: EmployeeBp) => {
   // throw new Error("Create request denied by API");
 
   const response = await fetch("http://localhost:8080/employees", {
@@ -72,7 +72,7 @@ export const deleteEmployee = async (id: number) => {
   }
 };
 
-export const updateEmployee = async (id: number, data) => {
+export const updateEmployee = async (id: number, data: EmployeeBp) => {
   // throw new Error("Update request denied by API");
 
   const response = await fetch(`http://localhost:8080/employees/${id}/edit`, {
