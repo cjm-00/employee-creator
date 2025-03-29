@@ -3,16 +3,24 @@
 .modal {
   position: fixed;
   z-index: 5;
-  background-color: c.$umbra;
-  padding: 30px;
-  top: 30%;
-  left: 50%;
-  border-radius: 10px;
-  box-shadow: 2px 2px 3px rgba(39, 39, 39, 0.486);
+
   transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: dropDown 0.5s ease-out forwards;
 }
 
-.backdrop {
+@keyframes dropDown {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: 15%;
+    opacity: 1;
+  }
+}
+
+.backdrop--primary {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,4 +28,33 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.815);
   z-index: 4;
+}
+
+.modal--err {
+  background-color: rgb(180, 66, 66);
+  color: rgb(255, 255, 255);
+  padding: 20px 40px;
+  top: 15%;
+  left: 50%;
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px rgba(26, 25, 25, 0.589);
+}
+
+.modal--ok {
+  background-color: rgb(89, 133, 77);
+  color: rgb(255, 255, 255);
+  padding: 20px 40px;
+  top: 15%;
+  left: 50%;
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px rgba(26, 25, 25, 0.589);
+}
+
+.modal--primary {
+  background-color: c.$umbra;
+  padding: 30px;
+  top: 30%;
+  left: 50%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(39, 39, 39, 0.486);
 }
