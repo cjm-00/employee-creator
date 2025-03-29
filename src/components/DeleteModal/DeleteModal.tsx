@@ -5,19 +5,23 @@ import Modal from "../Modal/Modal";
 import classes from "./DeleteModal.module.scss";
 import { useNavigate } from "react-router";
 
+interface deleteProps {
+  fn: string;
+  sn: string;
+  isModalOpen: boolean;
+  setIsModalOpen: (arg: boolean) => void;
+  employeeId: number;
+  setNotification: (arg: any) => void;
+}
+
 export default function DeleteModal({
   fn,
   sn,
   isModalOpen,
   setIsModalOpen,
   employeeId,
-}: {
-  fn: string;
-  sn: string;
-  isModalOpen: boolean;
-  setIsModalOpen: (arg: boolean) => void;
-  employeeId: number;
-}) {
+  setNotification,
+}: deleteProps) {
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -31,11 +35,10 @@ export default function DeleteModal({
   const mutation = useMutation({
     mutationFn: (employeeId: number) => deleteEmployee(employeeId),
     onError: (error) => {
-      console.log(`error on deletion:`, error);
       setIsModalOpen(false);
+      setNotification(`${error}`);
     },
     onSuccess: () => {
-      console.log("successful delete bro");
       queryClient.invalidateQueries({
         queryKey: ["employees"],
         refetchType: "active",
